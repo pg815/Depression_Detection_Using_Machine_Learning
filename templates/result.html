@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medilab</title>
+  <meta name="description" content="Medilab a 3 minute depression test">
+  <meta name="keywords" content="depression test using Machine learning">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+  
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <!--banner-->
+  <section id="banner" class="banner">
+    <div class="bg-color">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="col-md-12">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+              <a class="navbar-brand" href="#"><img src="{{url_for('static',filename='img/logo.png')}}" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li class=""><a href="/">Home</a></li>
+                <li class=""><a href="/">Quiz Based Test</a></li>
+                <li class=""><a href="/sentiment">Sentiment Based Test</a></li>
+                <li class="active"><a href="">Result</a></li>
+                <li class=""><a href="#about">About</a></li>
+                <li class=""><a href="#footer">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <div class="banner-info">
+            <div class="banner-logo text-center">
+              <img src="{{url_for('static',filename='img/logo.png')}}" class="img-responsive">
+            </div>
+            <div class="banner-text text-center">
+              {% block code_block %}<h1 class="white">{{result}}</h1>{% endblock %}
+              <p>This depression test is based on the Depression Screening Test based on PHQ9</p>
+            </div>
+            <div class="overlay-detail text-center">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ banner-->
+
+   <!--about-->
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div style="visibility: visible;" class="col-sm-9 more-features-box">
+            <div class="more-features-box-text">
+              <div class="more-features-box-text-icon"> <i class="fa fa-angle-right" aria-hidden="true"></i> </div>
+              <div class="more-features-box-text-description">
+                <h3>It's something important you want to know.</h3>
+                <p>If you have some symptoms of depression. Right now, these symptoms are likely causing problems in your daily life. These problems may be big, like making it hard for you to take care of everyday activities and enjoy the things you usually do. You should get help right away.</p>
+              </div>
+            </div>
+            <div class="more-features-box-text-icon"> <i class="fa fa-angle-right" aria-hidden="true"></i> </div>
+              <div class="more-features-box-text-description">
+                <h3>Find Help.</h3>
+                <p>When you're feeling depressed, it can be hard to have energy to make a phone call. But having support from others can be helpful. Try talking to your doctor or a therapist. They can help you get treatment to deal with depression. You can also try telling family and friends how you’re feeling.
+                    How you’re feeling now isn't how you’ll always feel. People do get better. There are many good treatments for depression.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ about-->
+  
+ 
+  <!--cta 2-->
+  <section id="cta-2" class="section-padding">
+    <div class="container">
+      <div class=" row">
+        <div class="col-md-2"></div>
+        <div class="text-right-md col-md-4 col-sm-4">
+          <h2 class="section-title white lg-line">« A few words<br> about us »</h2>
+        </div>
+        <div class="col-md-4 col-sm-5">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a typek
+          <p class="text-right text-primary"><i>— Medilap Healthcare</i></p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </section>
+  <!--cta-->
+ 
+  <!--footer-->
+  <footer id="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">About Us</h4>
+            </div>
+            <div class="info-sec">
+              <p>Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis parturient.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Quick Links</h4>
+            </div>
+            <div class="info-sec">
+              <ul class="quick-info">
+                <li><a href="index.html"><i class="fa fa-circle"></i>Home</a></li>
+                <li><a href="#service"><i class="fa fa-circle"></i>Demo</a></li>
+                <li><a href="#contact"><i class="fa fa-circle"></i>Appointment</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Follow us</h4>
+            </div>
+            <div class="info-sec">
+              <ul class="social-icon">
+                <li class="bglight-blue"><i class="fa fa-facebook"></i></li>
+                <li class="bgred"><i class="fa fa-google-plus"></i></li>
+                <li class="bgdark-blue"><i class="fa fa-linkedin"></i></li>
+                <li class="bglight-blue"><i class="fa fa-twitter"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-line">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            © Copyright Medilab. All Rights Reserved
+            <div class="credits">
+            
+              Designed by <a href="https://medilabs.com/">Medilabs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/ footer-->
+
+  <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/jquery.easing.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/custom.js')}}"></script>
+
+
+
+
+</body>
+
+</html>

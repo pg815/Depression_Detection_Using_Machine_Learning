@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medilab</title>
+  <meta name="description" content="Medilab a 3 minute depression test">
+  <meta name="keywords" content="depression test using Machine learning">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+  
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <!--banner-->
+  <section id="banner" class="banner">
+    <div class="bg-color">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="col-md-12">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+              <a class="navbar-brand" href="#"><img src="{{url_for('static',filename='img/logo.png')}}" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li class=""><a href="#service">Take a Test</a></li>
+                <li class=""><a href="#about">About</a></li>
+                <li class=""><a href="#testimonial">Testimonial</a></li>
+                <li class=""><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <div class="banner-info">
+            <div class="banner-logo text-center">
+              <img src="{{url_for('static',filename='img/logo.png')}}" class="img-responsive">
+            </div>
+            <div class="banner-text text-center">
+              {% block code_block %}<h1 class="white">Please answer all the below questions to see results.</h1>{% endblock %}
+              <p>This depression quiz is based on the Depression Screening Test based on PHQ9</p>
+              <a href="#service" class="btn btn-appoint">Take a Test.</a>
+            </div>
+            <div class="overlay-detail text-center">
+              <a href="#service"><i class="fa fa-angle-down"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ banner-->
+
+
+
+  <!--service-->
+  <form action="/predict" method="POST">
+  <section id="service" class="section-padding">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-4 col-sm-4">
+          <h2 class="ser-title">Take a Test</h2>
+          <hr class="botm-line">
+          <p style="font: black">Instructions: Beside is a list of questions that relate to life experiences common among people who have been diagnosed with depression. Please read each question carefully, and indicate how often you have experienced the same or similar challenges in the past few months.</p>
+        
+          <div class="service-info">
+              <div class="icon-info">
+                  
+                <h4>Little interest or pleasure in doing things</h4>
+                <ul class="list-group">
+                  <li><div>
+                    <input type="radio" id="a10" name="a1" value="0">
+                    <label for="a10">Not at all.</label>
+                  </div></li>
+                  <li><div>
+                      <input type="radio" id="a11" name="a1" value="1">
+                      <label for="a11">Several days.</label>
+                  </div></li>
+                  </li>
+                  <li><div>
+                      <input type="radio" id="a12" name="a1" value="2">
+                      <label for="a12">More than half the days.</label>
+                  </div></li>
+                  <li><div>
+                      <input type="radio" id="a13" name="a1" value="3">
+                      <label for="a13">Nearly every day.</label>
+                  </div></li>
+                </ul>
+              
+              </div>
+            </div>
+  
+            <div class="service-info">
+              <div class="icon-info">
+                  
+                <h4>Feeling down, depressed, or hopeless</h4>
+                <ul class="list-group">
+                    <li><div>
+                      <input type="radio" id="a20" name="a2" value="0">
+                      <label for="a20">Not at all.</label>
+                    </div></li>
+                    <li><div>
+                        <input type="radio" id="a21" name="a2" value="1">
+                        <label for="a21">Several days.</label>
+                    </div></li>
+                    </li>
+                    <li><div>
+                        <input type="radio" id="a22" name="a2" value="2">
+                        <label for="a22">More than half the days.</label>
+                    </div></li>
+                    <li><div>
+                        <input type="radio" id="a23" name="a2" value="3">
+                        <label for="a23">Nearly every day.</label>
+                    </div></li>
+                  </ul>
+                   
+              </div>
+            </div>
+
+            <div class="service-info">
+                <div class="icon-info">
+                  <h4>Trouble falling or staying asleep, or sleeping too much</h4>
+                  
+                    <ul class="list-group">
+                      <li><div>
+                        <input type="radio" id="a30" name="a3" value="0">
+                        <label for="a30">Not at all.</label>
+                      </div></li>
+                      <li><div>
+                          <input type="radio" id="a31" name="a3" value="1">
+                          <label for="a31">Several days.</label>
+                      </div></li>
+                      </li>
+                      <li><div>
+                          <input type="radio" id="a32" name="a3" value="2">
+                          <label for="a32">More than half the days.</label>
+                      </div></li>
+                      <li><div>
+                          <input type="radio" id="a33" name="a3" value="3">
+                          <label for="a33">Nearly every day.</label>
+                      </div></li>
+                    </ul>
+                     
+                </div>
+              </div><!-- div end of service info-->
+
+        </div>
+
+        
+
+        <div class="col-md-4 col-sm-4">
+        
+          <div class="service-info">
+            <div class="icon-info">
+              <h4>Feeling tired or having little energy</h4>
+              
+                <ul class="list-group">
+                  <li><div>
+                    <input type="radio" id="a40" name="a4" value="0">
+                    <label for="a40">Not at all.</label>
+                  </div></li>
+                  <li><div>
+                      <input type="radio" id="a41" name="a4" value="1">
+                      <label for="a41">Several days.</label>
+                  </div></li>
+                  </li>
+                  <li><div>
+                      <input type="radio" id="a42" name="a4" value="2">
+                      <label for="a42">More than half the days.</label>
+                  </div></li>
+                  <li><div>
+                      <input type="radio" id="a43" name="a4" value="3">
+                      <label for="a43">Nearly every day.</label>
+                  </div></li>
+                </ul>
+              
+            </div>
+          </div>
+
+          <div class="service-info">
+            <div class="icon-info">
+              <h4>Poor appetite or overeating</h4>
+               
+              <ul class="list-group">
+                  <li><div>
+                    <input type="radio" id="a50" name="a5" value="0">
+                    <label for="a50">Not at all.</label>
+                  </div></li>
+                  <li><div>
+                      <input type="radio" id="a51" name="a5" value="1">
+                      <label for="a51">Several days.</label>
+                  </div></li>
+                  </li>
+                  <li><div>
+                      <input type="radio" id="a52" name="a5" value="2">
+                      <label for="a52">More than half the days.</label>
+                  </div></li>
+                  <li><div>
+                      <input type="radio" id="a53" name="a5" value="3">
+                      <label for="a53">Nearly every day.</label>
+                  </div></li>
+                </ul>
+                
+            </div>
+          </div>
+
+          <div class="service-info">
+              <div class="icon-info">
+                <h4>Feeling bad about yourself - or that you are a failure or have let yourself or your family down</h4>
+                
+                  <ul class="list-group">
+                    <li><div>
+                      <input type="radio" id="a60" name="a6" value="0">
+                      <label for="a60">Not at all.</label>
+                    </div></li>
+                    <li><div>
+                        <input type="radio" id="a61" name="a6" value="1">
+                        <label for="a61">Several days.</label>
+                    </div></li>
+                    </li>
+                    <li><div>
+                        <input type="radio" id="a62" name="a6" value="2">
+                        <label for="a62">More than half the days.</label>
+                    </div></li>
+                    <li><div>
+                        <input type="radio" id="a63" name="a6" value="3">
+                        <label for="a63">Nearly every day.</label>
+                    </div></li>
+                  </ul>
+                  
+              </div>
+            </div>
+
+            <div class="service-info">
+                <div class="icon-info">
+                  <h4>Trouble concentrating on things, such as reading the newspaper or watching television</h4>
+                  
+                    <ul class="list-group">
+                      <li><div>
+                        <input type="radio" id="a70" name="a7" value="0">
+                        <label for="a70">Not at all.</label>
+                      </div></li>
+                      <li><div>
+                          <input type="radio" id="a71" name="a7" value="1">
+                          <label for="a71">Several days.</label>
+                      </div></li>
+                      </li>
+                      <li><div>
+                          <input type="radio" id="a72" name="a7" value="2">
+                          <label for="a72">More than half the days.</label>
+                      </div></li>
+                      <li><div>
+                          <input type="radio" id="a73" name="a7" value="3">
+                          <label for="a73">Nearly every day.</label>
+                      </div></li>
+                    </ul>
+                    
+                </div>
+              </div>
+
+        </div><!--End of mid column-->
+
+        <div class="col-md-4 col-sm-4">
+
+          
+
+          <div class="icon-info">
+            <h4>Moving or speaking so slowly that other people could have noticed</h4>
+            <ul class="list-group">
+                <li><div>
+                  <input type="radio" id="a80" name="a8" value="0">
+                  <label for="a80">Not at all.</label>
+                </div></li>
+                <li><div>
+                    <input type="radio" id="a81" name="a8" value="1">
+                    <label for="a81">Several days.</label>
+                </div></li>
+                </li>
+                <li><div>
+                    <input type="radio" id="a82" name="a8" value="2">
+                    <label for="a82">More than half the days.</label>
+                </div></li>
+                <li><div>
+                    <input type="radio" id="a83" name="a8" value="3">
+                    <label for="a83">Nearly every day.</label>
+                </div></li>
+              </ul>
+          </div>
+        </div>
+
+         
+        <div class="service-info">
+          <div class="icon-info">
+            <h4>Thoughts that you would be better off dead, or of hurting yourself</h4>
+            <ul class="list-group">
+                <li><div>
+                  <input type="radio" id="a90" name="a9" value="0">
+                  <label for="a90">Not at all.</label>
+                </div></li>
+                <li><div>
+                    <input type="radio" id="a91" name="a9" value="1">
+                    <label for="a91">Several days.</label>
+                </div></li>
+                </li>
+                <li><div>
+                    <input type="radio" id="a92" name="a9" value="2">
+                    <label for="a92">More than half the days.</label>
+                </div></li>
+                <li><div>
+                    <input type="radio" id="a93" name="a9" value="3">
+                    <label for="a93">Nearly every day.</label>
+                </div></li>
+              </ul>
+          </div>
+        </div>
+        
+
+        
+        <div class="service-info">
+          <div class="icon-info">
+            <h4>If you've had any days with issues above, how difficult have these problems made it for you at work, home, school, or with other people?</h4>
+            <ul class="list-group">
+                <li><div>
+                  <input type="radio" id="a100" name="a10" value="0">
+                  <label for="a100">Not difficult at all.</label>
+                </div></li>
+                <li><div>
+                    <input type="radio" id="a101" name="a10" value="1">
+                    <label for="a101">Somewhat difficult.</label>
+                </div></li>
+                </li>
+                <li><div>
+                    <input type="radio" id="a102" name="a10" value="2">
+                    <label for="a102">Very difficult.</label>
+                </div></li>
+                <li><div>
+                    <input type="radio" id="a103" name="a10" value="3">
+                    <label for="a103">Extremly difficult.</label>
+                </div></li>
+              </ul>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">See Results</button>
+      </div>
+    </div>
+  </section>
+</form>
+  <!--/ service-->
+
+
+  <!--cta-->
+  <section id="cta-1" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="schedule-tab">
+          <div class="col-md-12 col-sm-12">
+            <div class="mt-boxy-color"></div>
+            <div class="medi-info">
+              <h3>Emergency Case</h3>
+              <p>This information is not designed to replace a physician's independent judgment about the appropriateness or risks of a procedure for a given patient. Always consult your doctor about your medical conditions. Remedy Health Media & PsyCom do not provide medical advice, diagnosis or treatment. Use of this website is conditional upon your acceptance of our User Agreement. </p>
+              <a href="#" class="medi-info-btn">READ MORE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--cta-->
+  <!--about-->
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="section-title">
+            <h2 class="head-title lg-line">The Medilab <br>Ultimate Dream</h2>
+            <hr class="botm-line">
+            <p class="sec-para">Inspiring millions of patients and caregivers to live healthier, happier lives through our intensely personal, emotionally engaging health stories and our medically vetted content and tools.millions of patients and caregivers to live healthier, happier lives through our intensely personal, emotionally engaging health stories and our medically vetted content and tools.</p>
+            <a href="" style="color: #0cb8b6; padding-top:10px;">Know more..</a>
+          </div>
+        </div>
+        <div class="col-md-9 col-sm-8 col-xs-12">
+          <div style="visibility: visible;" class="col-sm-9 more-features-box">
+            <div class="more-features-box-text">
+              <div class="more-features-box-text-icon"> <i class="fa fa-angle-right" aria-hidden="true"></i> </div>
+              <div class="more-features-box-text-description">
+                <h3>It's something important you want to know.</h3>
+                <p>We additionally suggest it would be prudent to start a conversation with your doctor.If you need help we strongly suggest that you reach out to to a qualified mental health professional listed in our directory of emergency mental health resources.</p>
+              </div>
+            </div>
+            <div class="more-features-box-text-icon"> <i class="fa fa-angle-right" aria-hidden="true"></i> </div>
+              <div class="more-features-box-text-description">
+                <h3>It's something important you want to know.</h3>
+                <p>Medilab has been a leader in addressing mental health and helping break stigma. Now the third largest mental health site, it has grown into an essential resource on depression, anxiety disorders, bipolar disorder, schizophrenia, and many other conditions. Via patient stories, expert interviews, popular assessment tools, and engaging imagery, people with mental illness receive both crucial information—and hope.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ about-->
+  
+ 
+  <!--cta 2-->
+  <section id="cta-2" class="section-padding">
+    <div class="container">
+      <div class=" row">
+        <div class="col-md-2"></div>
+        <div class="text-right-md col-md-4 col-sm-4">
+          <h2 class="section-title white lg-line">« A few words<br> about us »</h2>
+        </div>
+        <div class="col-md-4 col-sm-5">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a typek
+          <p class="text-right text-primary"><i>— Medilap Healthcare</i></p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </section>
+  <!--cta-->
+ 
+  <!--footer-->
+  <footer id="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">About Us</h4>
+            </div>
+            <div class="info-sec">
+              <p>Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis parturient.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Quick Links</h4>
+            </div>
+            <div class="info-sec">
+              <ul class="quick-info">
+                <li><a href="index.html"><i class="fa fa-circle"></i>Home</a></li>
+                <li><a href="#service"><i class="fa fa-circle"></i>Demo</a></li>
+                <li><a href="#contact"><i class="fa fa-circle"></i>Appointment</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 marb20">
+            <div class="ftr-tle">
+              <h4 class="white no-padding">Follow us</h4>
+            </div>
+            <div class="info-sec">
+              <ul class="social-icon">
+                <li class="bglight-blue"><i class="fa fa-facebook"></i></li>
+                <li class="bgred"><i class="fa fa-google-plus"></i></li>
+                <li class="bgdark-blue"><i class="fa fa-linkedin"></i></li>
+                <li class="bglight-blue"><i class="fa fa-twitter"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-line">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            © Copyright Medilab. All Rights Reserved
+            <div class="credits">
+            
+              Designed by <a href="https://medilabs.com/">Medilabs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/ footer-->
+
+  <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/jquery.easing.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/custom.js')}}"></script>
+
+
+
+
+</body>
+
+</html>
